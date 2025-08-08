@@ -1,43 +1,55 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace PivotGridDemo
 {
-    public class ProductSales
+    public class ProductSales : INotifyPropertyChanged
     {
+        private string product;
+        private string date;
+        private string country;
+        private string state;
+        private int quantity;
+        private double amount;
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         public string Product
         {
-            get;
-            set;
+            get { return product; }
+            set { product = value; OnPropertyChanged(nameof(Product)); }
         }
         public string Date
         {
-            get;
-            set;
+            get { return date; }
+            set { date = value; OnPropertyChanged(nameof(Date)); }
         }
         public string Country
         {
-            get;
-            set;
+            get { return country; }
+            set { country = value; OnPropertyChanged(nameof(Country)); }
         }
         public string State
         {
-            get;
-            set;
+            get { return state; }
+            set { state = value; OnPropertyChanged(nameof(State)); }
         }
         public int Quantity
         {
-            get;
-            set;
+            get { return quantity; }
+            set { quantity = value; OnPropertyChanged(nameof(Quantity)); }
         }
         public double Amount
         {
-            get;
-            set;
-        }
+            get { return amount; }
+            set { amount = value; OnPropertyChanged(nameof(Amount)); }
+        }        
+
         public static ProductSalesCollection GetSalesData()
         {
             /// Geography
@@ -81,7 +93,7 @@ namespace PivotGridDemo
                 listOfProductSales.Add(sales);
             }
             return listOfProductSales;
-        }
+        }        
         public override string ToString()
         {
             return string.Format("{0}-{1}-{2}", this.Country, this.State, this.Product);
@@ -90,5 +102,10 @@ namespace PivotGridDemo
         {
 
         }
+        protected void OnPropertyChanged(string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
     }
 }

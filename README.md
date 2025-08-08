@@ -1,6 +1,6 @@
 # How to disable drag and drop for rows columns and filters in WPF PivotGridControl?
 
-In [WPF PivotGridControl](https://www.syncfusion.com/wpf-controls/pivot-grid), drag-and-drop functionality for rows, columns, and filters can be disabled by setting the AllowDrop property to false within the [GroupingBar's](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.Controls.PivotGrid.PivotGridGroupingBar.html) Loaded event.
+In [WPF PivotGridControl](https://www.syncfusion.com/wpf-controls/pivot-grid), drag-and-drop functionality for rows, columns, and filters can be disabled by setting the AllowDrop property to false within the [GroupingBar](https://help.syncfusion.com/cr/wpf/Syncfusion.Windows.Controls.PivotGrid.PivotGridGroupingBar.html) Loaded event.
 
 ```csharp
 pivotGrid.Loaded += OnLoaded; 

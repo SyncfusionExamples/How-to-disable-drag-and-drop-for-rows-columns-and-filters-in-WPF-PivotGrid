@@ -16,6 +16,7 @@ namespace PivotGridDemo
         private string state;
         private int quantity;
         private double amount;
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string Product
@@ -80,9 +81,11 @@ namespace PivotGridDemo
              "Bike",
              "Car"
             };
+            
             Random r = new Random(123345345);
             int numberOfRecords = 2000;
             ProductSalesCollection listOfProductSales = new ProductSalesCollection();
+
             for (int i = 0; i < numberOfRecords; i++)
             {
                 ProductSales sales = new ProductSales();
@@ -96,6 +99,7 @@ namespace PivotGridDemo
                 sales.State = canadaStates[r.Next(canadaStates.GetLength(0))];
                 listOfProductSales.Add(sales);
             }
+
             return listOfProductSales;
         }   
         

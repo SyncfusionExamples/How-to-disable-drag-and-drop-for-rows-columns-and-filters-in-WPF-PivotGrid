@@ -16,7 +16,6 @@ namespace PivotGridDemo
         private string state;
         private int quantity;
         private double amount;
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string Product
@@ -24,26 +23,31 @@ namespace PivotGridDemo
             get { return product; }
             set { product = value; OnPropertyChanged(nameof(Product)); }
         }
+
         public string Date
         {
             get { return date; }
             set { date = value; OnPropertyChanged(nameof(Date)); }
         }
+
         public string Country
         {
             get { return country; }
             set { country = value; OnPropertyChanged(nameof(Country)); }
         }
+
         public string State
         {
             get { return state; }
             set { state = value; OnPropertyChanged(nameof(State)); }
         }
+
         public int Quantity
         {
             get { return quantity; }
             set { quantity = value; OnPropertyChanged(nameof(Quantity)); }
         }
+
         public double Amount
         {
             get { return amount; }
@@ -93,19 +97,21 @@ namespace PivotGridDemo
                 listOfProductSales.Add(sales);
             }
             return listOfProductSales;
-        }        
+        }   
+        
         public override string ToString()
         {
             return string.Format("{0}-{1}-{2}", this.Country, this.State, this.Product);
         }
+
         public class ProductSalesCollection : List<ProductSales>
         {
 
         }
+
         protected void OnPropertyChanged(string propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
     }
 }
